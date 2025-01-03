@@ -32,7 +32,7 @@ let completedGoalsCount = Object.values(allGoals).filter(
 ).length;
 progressValue.style.width = `${(completedGoalsCount / allInputFields.length) * 100}%`;
 progressLabel.innerText = allQuotes[completedGoalsCount];
-
+progressValue.firstElementChild.innerText = `${(completedGoalsCount)} / ${allInputFields.length} completed`;
 allCheckBox.forEach((checkbox) => {
   checkbox.addEventListener("click", (e) => {
     const allInputFilled = [...allInputFields].every((input) => {
