@@ -13,26 +13,13 @@ const allQuotes = [
 
 const allGoals =
   JSON.parse(localStorage.getItem("allGoals")) ||
-  {
-    // first: {
-    //   name: '',
-    //   completed: false,
-    // },
-    // second: {
-    //   name: '',
-    //   completed: false,
-    // },
-    // third: {
-    //   name: '',
-    //   completed: false,
-    // },
-  };
+  {};
 let completedGoalsCount = Object.values(allGoals).filter(
   (goal) => goal.completed
 ).length;
 progressValue.style.width = `${(completedGoalsCount / allInputFields.length) * 100}%`;
-progressLabel.innerText = allQuotes[completedGoalsCount];
 progressValue.firstElementChild.innerText = `${completedGoalsCount} / ${allInputFields.length} completed`;
+progressLabel.innerText = allQuotes[completedGoalsCount];
 
 allCheckBox.forEach((checkbox) => {
   checkbox.addEventListener("click", (e) => {
